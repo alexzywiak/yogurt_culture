@@ -7,7 +7,6 @@ angular.module('yogurtCultureApp', [
   'ui.router',
   'ui.bootstrap',
   'textAngular',
-  'angularFileUpload'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider
