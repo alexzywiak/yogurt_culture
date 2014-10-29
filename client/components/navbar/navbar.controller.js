@@ -8,6 +8,13 @@ angular.module('yogurtCultureApp')
         }, {
             'title': 'About',
             'link': '/about'
+        },
+        {
+            'title': 'Manage Products',
+            'link': '/manage-products'
+        }, {
+            'title' : 'Media',
+            'link' : '/media'
         }];
 
         $scope.isCollapsed = true;

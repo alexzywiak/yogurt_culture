@@ -1,0 +1,30 @@
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-10-offset-1">
+      <div class="row">
+        <div ng-repeat="image in images" class="col-sm-2">
+          <img class="img-preview" src="{{image.serverPath}}" alt="{{image.originalFilename}}">
+          <button ng-click="removeImage(image._id)" class="btn btn-danger">Delete</button>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox"
+              ng-model="selectedImages[image._id]"> Check me out
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="sol-sm-4">
+          Upload More Images<input type="file" ng-file-select="onFileSelect($files)">
+        </div>
+      </div>
+      <button ng-click="saveImagesToProduct(product._id)" class="btn btn-success">Add Images to Post</button>
+      <pre>{{product | json}}</pre>
+      <pre>{{selectedImages | json}}</pre>
+      <pre>{{productImages | json}}</pre>
+    </div>
+  </div>
+</div>

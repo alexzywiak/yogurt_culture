@@ -5,7 +5,7 @@ angular.module('yogurtCultureApp')
     $stateProvider
       .state('manage-products', {
         url: '/manage-products',
-        templateUrl: 'app/admin/partials/manage-products/manage-products.html',
+        templateUrl: 'app/manage-products/manage-products.html',
         controller: 'ManageProductsCtrl'
       });
   });

@@ -29,6 +29,7 @@ Thing.find({}).remove(function() {
     name : 'Deployment Ready',
     info : 'Easily deploy your app to Heroku or Openshift with the heroku and openshift subgenerators'
   });
+  console.log('Seeding Things');
 });
 
 Product.find({}).remove(function() {
@@ -38,6 +39,7 @@ Product.find({}).remove(function() {
     description : 'Handmade bag.  Comes in a variety of styles and colors.',
     category    : 'Accessories',
     price       : 10,
+    images      : {},
     inStock     : true
   },
   {
@@ -46,6 +48,7 @@ Product.find({}).remove(function() {
     description : 'An active wear shirt excellent for all physical activities.  Allows excellent movement and keeps you from getting all sweaty and stinky.',
     category    : 'Clothing',
     price       : 25.00,
+    images      : {},
     inStock     : true
   },
   {
@@ -54,9 +57,11 @@ Product.find({}).remove(function() {
     description : 'Super chic low carb outer wear.',
     category    : 'Clothing',
     price       : 5.00,
+    images      : {},
     inStock     : false
   }
   );
+  console.log('Seeding Products');
 });
 
 User.find({}).remove(function() {

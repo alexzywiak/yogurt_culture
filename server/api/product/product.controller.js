@@ -2,6 +2,9 @@
 
 var _ = require('lodash');
 var Product = require('./product.model');
+var multiparty = require('multiparty');
+var fs = require('fs');
+var path = require('path');
 
 // Get list of products
 exports.index = function(req, res) {
@@ -37,12 +40,25 @@ exports.create = function(req, res) {
     });
 };
 
-// Handles Photo Upload
-exports.uploadImage = function(req, res) {
-    console.log('Upload!');
-    console.log(req.file);
+exports.addImages = function(req, res) {
 
+    Product.findById(req.params.id, function(err, product) {
+        if (err) {
+            return handleError(res, err);
+        }
+        if (!product) {
+            return res.send(404);
+        }
+        product.images = req.body;
+        product.save(function(err) {
+            if (err) {
+                return handleError(res, err);
+            }
+            return res.json(200, product);
+        });
+    });
 };
+
 
 // Updates an existing product in the DB.
 exports.update = function(req, res) {

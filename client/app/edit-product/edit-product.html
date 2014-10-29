@@ -3,7 +3,7 @@
 <div class="container">
 
   <div class="col-md-8 col-md-offset-2">
-    <a ui-sref="admin"><button class="btn btn-primary"><span class="span glyphicon glyphicon-arrow-left"></span> Edit All Products</button></a>
+    <a ui-sref="manage-products"><button class="btn btn-primary"><span class="span glyphicon glyphicon-arrow-left"></span> Edit All Products</button></a>
 
     <h3>{{product.name}}</h3>
     <hr>
@@ -49,7 +49,12 @@
       <button ng-click="updateProduct(product._id)" class="btn btn-primary" type="button">Update</button>
       <button ng-click="deleteProduct(product._id)" class="btn btn-danger" type="button">Delete</button>
     </form>
-
+    <ul class="list-group">
+      <li ng-repeat="image in productImages" class="list-group-item">
+        <img class="img-preview" src="{{image.serverPath}}" alt="{{image.originalFilename}}">
+      </li>
+    </ul>
+    <div ui-view="edit-images"></div>
   </div>
 </div>
 

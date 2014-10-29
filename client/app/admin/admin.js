@@ -12,7 +12,7 @@ angular.module('yogurtCultureApp')
           }, 
           
           'manage-products@admin':{
-            templateUrl : 'app/admin/partials/manage-products/manage-products.html',
+            templateUrl : 'app/manage-products/manage-products.html',
             controller  : 'ManageProductsCtrl'
           },
           'manage-users@admin':{
