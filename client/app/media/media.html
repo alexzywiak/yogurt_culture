@@ -10,7 +10,8 @@
           <div class="checkbox">
             <label>
               <input type="checkbox"
-              ng-model="selectedImages[image._id]"> Check me out
+              ng-model="selectedImages[image._id]"
+              ng-checked="product.images.indexOf(image._id) > -1"> Check me out
             </label>
           </div>
         </div>
@@ -23,8 +24,6 @@
       </div>
       <button ng-click="saveImagesToProduct(product._id)" class="btn btn-success">Add Images to Post</button>
       <pre>{{product | json}}</pre>
-      <pre>{{selectedImages | json}}</pre>
-      <pre>{{productImages | json}}</pre>
     </div>
   </div>
 </div>

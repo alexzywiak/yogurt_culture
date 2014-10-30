@@ -12,6 +12,10 @@ angular.module('yogurtCultureApp')
         {
             'title': 'Manage Products',
             'link': '/manage-products'
+        },
+        {
+            'title' : 'New Product',
+            'link' : '/new-product'
         }, {
             'title' : 'Media',
             'link' : '/media'

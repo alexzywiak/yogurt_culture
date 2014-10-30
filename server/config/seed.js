@@ -39,7 +39,7 @@ Product.find({}).remove(function() {
     description : 'Handmade bag.  Comes in a variety of styles and colors.',
     category    : 'Accessories',
     price       : 10,
-    images      : {},
+    images      : ["5451ac47eaa0d7861940e542", "5451ac4beaa0d7861940e543", "5451ac4feaa0d7861940e544"],
     inStock     : true
   },
   {
@@ -48,7 +48,7 @@ Product.find({}).remove(function() {
     description : 'An active wear shirt excellent for all physical activities.  Allows excellent movement and keeps you from getting all sweaty and stinky.',
     category    : 'Clothing',
     price       : 25.00,
-    images      : {},
+    images      : [],
     inStock     : true
   },
   {
@@ -57,7 +57,7 @@ Product.find({}).remove(function() {
     description : 'Super chic low carb outer wear.',
     category    : 'Clothing',
     price       : 5.00,
-    images      : {},
+    images      : [],
     inStock     : false
   }
   );

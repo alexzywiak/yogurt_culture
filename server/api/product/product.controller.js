@@ -49,7 +49,15 @@ exports.addImages = function(req, res) {
         if (!product) {
             return res.send(404);
         }
-        product.images = req.body;
+
+        var imageArray = [];
+
+        for(var id in req.body){
+            if(req.body[id]){
+                imageArray.push(id);
+            }
+        }
+        product.images = imageArray;
         product.save(function(err) {
             if (err) {
                 return handleError(res, err);

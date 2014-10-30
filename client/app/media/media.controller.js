@@ -2,7 +2,7 @@
 
 angular.module('yogurtCultureApp')
     .controller('MediaCtrl', function($scope, $http, $upload) {
-        
+
         $scope.allImages = {};
         $scope.productImages = {};
         $scope.selectedImages = {};
@@ -11,11 +11,11 @@ angular.module('yogurtCultureApp')
             $scope.images = data;
         });
 
-        $scope.saveImagesToProduct = function(product_id){
-          $http.put('/api/products/addImages/' + product_id, $scope.selectedImages)
-          .success(function(product){
-            $scope.product = product;
-          });
+        $scope.saveImagesToProduct = function(product_id) {
+            $http.put('/api/products/addImages/' + product_id, $scope.selectedImages)
+                .success(function(product) {
+                    $scope.product = product;
+                });
         };
 
         $scope.onFileSelect = function($files) {
@@ -38,15 +38,15 @@ angular.module('yogurtCultureApp')
 
         };
 
-        $scope.removeImage = function(image_id){
+        $scope.removeImage = function(image_id) {
 
-          $http.delete('/api/images/' + image_id).success(function(){
-            if(image_id in $scope.selectedImages){
-              delete $scope.selectedImages[image_id];
-            }
-            $http.get('/api/images').success(function(images){
-              $scope.images = images;
+            $http.delete('/api/images/' + image_id).success(function() {
+                if (image_id in $scope.selectedImages) {
+                    delete $scope.selectedImages[image_id];
+                }
+                $http.get('/api/images').success(function(images) {
+                    $scope.images = images;
+                });
             });
-          }); 
         };
     });

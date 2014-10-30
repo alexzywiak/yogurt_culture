@@ -9,7 +9,7 @@ var ProductSchema = new Schema({
   category    : String,
   sku         : String,
   price       : Number,
-  images      : Object,
+  images      : Array,
   inStock     : Boolean
 });
 

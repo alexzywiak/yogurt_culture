@@ -19,18 +19,8 @@ exports.index = function(req, res) {
 // Returns all images in an array of _ids.
 exports.getImageArray = function(req, res){
     
-    var images     = req.body.images,
-        queryArray = [];
-    console.log(images);
-
-    for(var imageId in images){
-        if(images[imageId]){
-            queryArray.push(imageId);
-        }
-    }
-    
     Image.find({
-        '_id' : { '$in' : queryArray }
+        '_id' : { '$in' : req.body.images }
     }, function(err, images){
         res.json(images);
     });
