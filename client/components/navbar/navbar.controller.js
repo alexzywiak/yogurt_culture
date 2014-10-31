@@ -6,8 +6,8 @@ angular.module('yogurtCultureApp')
             'title': 'Home',
             'link': '/'
         }, {
-            'title': 'About',
-            'link': '/about'
+            'title': 'Blog',
+            'link': '/blog'
         },
         {
             'title': 'Manage Products',

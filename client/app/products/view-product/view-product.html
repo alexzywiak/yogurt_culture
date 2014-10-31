@@ -1,0 +1,49 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<div class="container">
+  <div class="row">
+
+    <!-- Display Product Images -->
+    <div ng-show="mainImageUrl.length > 1" class="col-sm-7">
+      <div class="row">
+        <div class="col-sm-12">
+          <img ng-src="{{mainImageUrl}}" alt="{{productImages[0].originalFilename}}">
+        </div>
+      </div>
+      <div class="row top-buffer-10">
+        <div class="col-sm-12">
+          <ul class="list-inline">
+            <li ng-repeat="image in productImages">
+              <a href="#">
+                <img 
+                ng-src="{{image.serverPath}}"
+                ng-click="setImage(image.serverPath)"
+                class="img-sm-thumb"  alt="{{image.originalFilename}}">
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- If No Images Are Found -->
+    <div ng-hide="mainImageUrl.length > 1" class="col-sm-7">
+      <h4>Add Images!</h4>
+      <img ng-src="/assets/images/640x480.gif" alt="PlaceHolder">
+    </div>
+
+    <!-- Display Product Info -->
+    <div class="col-sm-5">
+      <div class="row">
+
+        <div class="col-sm-12">
+          <h1>{{product.name}}</h1>
+          <p>{{product.description}}</p>
+          <h4 class="text-right">${{product.price}}</h4>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>

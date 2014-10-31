@@ -90,25 +90,20 @@ exports.update = function(req, res) {
     });
 };
 
-// Deletes a product from the DB.
+// Deletes a post from the DB.
 exports.destroy = function(req, res) {
-    Product.findById(req.params.id, function(err, product) {
+    Product.findById(req.params.id, function(err, post) {
         if (err) {
             return handleError(res, err);
         }
-        if (!product) {
+        if (!post) {
             return res.send(404);
         }
-        product.remove(function(err) {
+        post.remove(function(err) {
             if (err) {
                 return handleError(res, err);
             }
-            Product.find(function(err, products) {
-                if (err) {
-                    return handleError(res, err);
-                }
-                return res.json(200, products);
-            });
+            return res.send(204);
         });
     });
 };

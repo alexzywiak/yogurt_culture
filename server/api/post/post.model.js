@@ -4,9 +4,12 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var PostSchema = new Schema({
-  name: String,
-  info: String,
-  active: Boolean
+  title:  String,
+  author: String,
+  body:   String,
+  comments: [{ body: String, date: Date }],
+  date: { type: Date, default: Date.now },
+  images : Array
 });
 
 module.exports = mongoose.model('Post', PostSchema);

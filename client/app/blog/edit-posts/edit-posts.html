@@ -1,0 +1,24 @@
+
+    <h3>{{post.name}}</h3>
+    <h6  class="text-right">
+      <a ui-sref="^.view-post({postId : post._id})">Preview Post</a>
+    </h6>
+    <hr>
+    
+    <form role="form" method="post">
+      
+      <div class="row">
+        <div class="form-group col-sm-6">
+          <label>Title</label>
+          <input ng-model="post.title" class="form-control" type="text" >
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Body</label>
+        <text-angular ng-model="post.body"></text-angular>
+      </div>
+      
+      <button ng-click="updatePost()" class="btn btn-primary" type="button">Update</button>
+      <button ng-click="removePost(post._id)" class="btn btn-danger" type="button">Delete</button>
+    </form>
