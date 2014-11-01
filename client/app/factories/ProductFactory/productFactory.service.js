@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('yogurtCultureApp')
-    .factory('ProductFactory', function ProductFactory($http, $location) {
+    .factory('ProductFactory', function ProductFactory($http) {
 
         var exports = {};
 
@@ -14,10 +14,7 @@ angular.module('yogurtCultureApp')
         };
 
         exports.createProduct = function(newProduct) {
-            $http.post('/api/products', newProduct)
-                .success(function(product) {
-                    $location.path('/edit-product/' + product._id);
-                });
+            return $http.post('/api/products', newProduct);
         };
 
         exports.updateProduct = function(updatedProduct){

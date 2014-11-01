@@ -17,11 +17,13 @@ exports.index = function(req, res) {
 };
 
 // Returns all images in an array of _ids.
-exports.getImageArray = function(req, res){
-    
+exports.getImageArray = function(req, res) {
+
     Image.find({
-        '_id' : { '$in' : req.body.images }
-    }, function(err, images){
+        '_id': {
+            '$in': req.body.images
+        }
+    }, function(err, images) {
         res.json(images);
     });
 };
@@ -58,12 +60,12 @@ exports.create = function(req, res) {
                     if (err) {
                         return handleError(res, err);
                     }
-                    Image.find(function(err, images){
-                        if(err){
+                    Image.find(function(err, images) {
+                        if (err) {
                             return handleError(res, err);
                         }
                         return res.json(images);
-                    }); 
+                    });
                 });
             });
         });
@@ -101,11 +103,18 @@ exports.destroy = function(req, res) {
         if (!image) {
             return res.send(404);
         }
-        image.remove(function(err) {
+        var imagePath = path.resolve(__dirname, '../../../client/') + image.serverPath;
+        console.log(image.newPath);
+        fs.unlink(imagePath, function(err) {
             if (err) {
                 return handleError(res, err);
             }
-            return res.send(204);
+            image.remove(function(err) {
+                if (err) {
+                    return handleError(res, err);
+                }
+                return res.send(204);
+            });
         });
     });
 };

@@ -1,24 +1,25 @@
 'use strict';
 
 angular.module('yogurtCultureApp')
-  .config(function ($stateProvider) {
-    $stateProvider
-      .state('admin', {
-        url: '/admin',
-        views : {
-          '' : {
-            templateUrl: 'app/admin/admin.html',
-            controller: 'AdminCtrl',
-          }, 
-          
-          'manage-products@admin':{
-            templateUrl : 'app/manage-products/manage-products.html',
-            controller  : 'ManageProductsCtrl'
-          },
-          'manage-users@admin':{
-            templateUrl : 'app/admin/partials/manage-users/manage-users.html',
-            controller  : 'ManageUsersCtrl'
-          }
-        }
-      });
-  });
+    .config(function($stateProvider) {
+        $stateProvider
+            // Main Template
+            .state('admin', {
+                url: '/admin',
+                templateUrl: 'app/admin/admin.html',
+                controller: 'AdminCtrl'
+            })
+            // Product Templates
+            .state('admin.products', {
+                url: '/products',
+                templateUrl: 'app/admin/partials/products/products.html',
+                controller: 'ProductCtrl'
+            })
+            // Blog Templates
+            .state('admin.blog', {
+                url: '/blog',
+                templateUrl: 'app/admin/partials/blog/blog.html',
+                controller: 'BlogCtrl'
+            });
+            
+    });

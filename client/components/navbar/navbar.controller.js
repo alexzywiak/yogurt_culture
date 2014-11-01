@@ -4,21 +4,7 @@ angular.module('yogurtCultureApp')
     .controller('NavbarCtrl', function($scope, $location, Auth) {
         $scope.menu = [{
             'title': 'Home',
-            'link': '/'
-        }, {
-            'title': 'Blog',
-            'link': '/blog'
-        },
-        {
-            'title': 'Manage Products',
-            'link': '/manage-products'
-        },
-        {
-            'title' : 'New Product',
-            'link' : '/new-product'
-        }, {
-            'title' : 'Media',
-            'link' : '/media'
+            'state': 'main'
         }];
 
         $scope.isCollapsed = true;
