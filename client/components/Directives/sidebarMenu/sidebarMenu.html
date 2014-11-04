@@ -1,0 +1,11 @@
+<div class="top-buffer-80"></div>
+<ul class="nav nav-pills nav-stacked">
+  <li ui-sref-active="active" ng-repeat="item in menu">
+    <a ui-sref="{{item.state}}">{{item.title}}</a>
+    <ul>
+      <li ng-repeat="subItem in item.submenu">
+        <a ui-sref="{{subItem.state}}">{{subItem.title}}</a>
+      </h6>
+    </li>
+  </li>
+</ul>

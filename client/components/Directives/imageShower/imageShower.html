@@ -1,0 +1,30 @@
+
+<div ng-show="images.length > 0">
+  <div class="row">
+    <div class="col-sm-12">
+      <img ng-src="{{mainImage.serverPath}}">
+    </div>
+  </div>
+  <div class="row top-buffer-10">
+    <div class="col-sm-12">
+      <ul class="list-inline">
+        <li class="col-sm-3" ng-repeat="image in images">
+          <a href="#">
+            <img 
+            ng-src="{{image.serverPath}}"
+            ng-click="setImage(image)"
+            alt="{{image.originalFilename}}">
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div ng-show="images.length == 0">
+  <div class="row">
+    <div class="col-sm-12">
+      <img src="/assets/images/640x480.gif" alt="Add some pictures">
+    </div>
+  </div>
+</div>
