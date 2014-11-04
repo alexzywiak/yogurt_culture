@@ -67,6 +67,26 @@ exports.addImages = function(req, res) {
     });
 };
 
+exports.addCategory = function(req, res){
+    console.log(req.body);
+    Product.findById(req.params.id, function(err, product){
+        if(err){
+            return handleError(res, err);
+        }
+        if(!product){
+            return res.send(404);
+        }
+
+        product.category = req.body;
+
+        product.save(function(err){
+            if(err){
+                return handleError(res, err);
+            }
+            return res.json(200, product);
+        });
+    });
+};
 
 // Updates an existing product in the DB.
 exports.update = function(req, res) {
@@ -80,12 +100,15 @@ exports.update = function(req, res) {
         if (!product) {
             return res.send(404);
         }
+
         var updated = _.merge(product, req.body);
+        console.log(updated.category);
         updated.save(function(err) {
             if (err) {
                 return handleError(res, err);
             }
-            return res.json(200, product);
+            console.log(updated.category);
+            return res.json(200, updated);
         });
     });
 };

@@ -38,15 +38,15 @@ Product.find({}).remove(function() {
         sku: 1,
         name: 'Yoga Bag',
         description: 'Handmade bag.  Comes in a variety of styles and colors.',
-        category: 'Accessories',
+        category: ['Accessories'],
         price: 10,
-        images: ["5451ac47eaa0d7861940e542", "5451ac4beaa0d7861940e543", "5451ac4feaa0d7861940e544"],
+        images: [],
         inStock: true
     }, {
         sku: 2,
         name: 'Shirt',
         description: 'An active wear shirt excellent for all physical activities.  Allows excellent movement and keeps you from getting all sweaty and stinky.',
-        category: 'Clothing',
+        category: ['Clothing'],
         price: 25.00,
         images: [],
         inStock: true
@@ -54,7 +54,7 @@ Product.find({}).remove(function() {
         sku: 3,
         name: 'Wrap',
         description: 'Super chic low carb outer wear.',
-        category: 'Clothing',
+        category: ['Clothing'],
         price: 5.00,
         images: [],
         inStock: false

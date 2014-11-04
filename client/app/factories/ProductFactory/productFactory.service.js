@@ -21,6 +21,10 @@ angular.module('yogurtCultureApp')
           return $http.put('/api/products/' + updatedProduct._id, updatedProduct);
         };
 
+        exports.addCategory = function(productId, catArr){
+          return $http.put('/api/products/addCategory/' + productId, catArr);
+        };  
+
         exports.removeProduct = function(productId){
           return $http.delete('/api/products/' + productId);
         };

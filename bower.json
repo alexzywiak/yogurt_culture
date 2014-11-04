@@ -16,7 +16,7 @@
     "lodash": "~2.4.1",
     "angular-ui-router": "~0.2.10",
     "textAngular" : ">=1.2.*",
-    "angularjs-file-upload":"*"
+    "angular-file-upload":"*"
   },
   "devDependencies": {
     "angular-mocks": ">=1.2.*",

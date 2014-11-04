@@ -1,0 +1,24 @@
+
+<div ng-controller="MediaCtrl">
+  {{selectedImages}}
+  <div ng-repeat="image in images" class="col-sm-2">
+    <img src="{{image.serverPath}}" alt="{{image.originalFilename}}">
+    <button ng-click="removeImage(image._id)" class="btn btn-danger">Delete</button>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox"
+        ng-init="selectedImages[image._id] = product.images.indexOf(image._id) > -1"
+        ng-model="selectedImages[image._id]"
+        ng-checked="selectedImages[image._id]"> Check me out
+      </label>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="sol-sm-4">
+      Upload More Images<input type="file" ng-file-select="onFileSelect($files)">
+    </div>
+  </div>
+  <button ng-click="saveImagesToProduct(product._id)" class="btn btn-success">Add Images to Post</button>
+  <pre>{{product | json}}</pre>
+</div>

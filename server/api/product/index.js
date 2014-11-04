@@ -13,6 +13,7 @@ router.get('/:id', controller.show)
 router.get('/manage/:id', controller.show);
 router.post('/', controller.create);
 router.put('/addImages/:id', controller.addImages);
+router.put('/addCategory/:id', controller.addCategory);
 router.put('/:id', controller.update);
 router.patch('/:id', controller.update);
 router.delete('/:id', controller.destroy);

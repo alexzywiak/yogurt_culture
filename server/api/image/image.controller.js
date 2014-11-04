@@ -41,30 +41,29 @@ exports.show = function(req, res) {
     });
 };
 
-// Creates a new image in the DB.
+// Saves uploaded files to the DB
 exports.create = function(req, res) {
 
-    var form = new multiparty.Form();
+    var form = new multiparty.Form(),
+        images = [];
 
     form.parse(req, function(err, fields, files) {
 
-        fs.readFile(files.file[0].path, function(err, data) {
+        files.file.map(function(file) {
 
-            var newPath = path.resolve(__dirname, '../../../client/assets/images') + '/' + files.file[0].originalFilename;
+            fs.readFile(file.path, function(err, data) {
 
-            fs.writeFile(newPath, data, function(err) {
+                var newPath = path.resolve(__dirname, '../../../client/assets/images') + '/' + file.originalFilename;
 
-                files.file[0].serverPath = '/assets/images/' + files.file[0].originalFilename;
+                fs.writeFile(newPath, data, function(err) {
 
-                Image.create(files.file[0], function(err, image) {
-                    if (err) {
-                        return handleError(res, err);
-                    }
-                    Image.find(function(err, images) {
+                    file.serverPath = '/assets/images/' + file.originalFilename;
+
+                    Image.create(file, function(err, image) {
                         if (err) {
                             return handleError(res, err);
                         }
-                        return res.json(images);
+                        res.send(200);
                     });
                 });
             });
