@@ -53,11 +53,11 @@ exports.create = function(req, res) {
 
             fs.readFile(file.path, function(err, data) {
 
-                var newPath = path.resolve(__dirname, '../../../client/assets/images') + '/' + file.originalFilename;
+                var newPath = path.resolve(__dirname, '../../../client/assets/images/uploads') + '/' + file.originalFilename;
 
                 fs.writeFile(newPath, data, function(err) {
 
-                    file.serverPath = '/assets/images/' + file.originalFilename;
+                    file.serverPath = '/assets/images/uploads/' + file.originalFilename;
 
                     Image.create(file, function(err, image) {
                         if (err) {
