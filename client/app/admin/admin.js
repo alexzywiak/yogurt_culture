@@ -11,14 +11,14 @@ angular.module('yogurtCultureApp')
             })
             // Product Templates
             .state('admin.products', {
-                url: '/products',
-                templateUrl: 'app/admin/partials/products/products.html',
+                url: '/admin/products',
+                templateUrl: 'app/partials/products/products.html',
                 controller: 'ProductCtrl'
             })
             // Blog Templates
             .state('admin.blog', {
-                url: '/blog',
-                templateUrl: 'app/admin/partials/blog/blog.html',
+                url: '/admin/blog',
+                templateUrl: 'app/partials/blog/blog.html',
                 controller: 'BlogCtrl'
             });
             

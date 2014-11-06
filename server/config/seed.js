@@ -40,7 +40,11 @@ Product.find({}).remove(function() {
         description: 'Handmade bag.  Comes in a variety of styles and colors.',
         category: ['Accessories'],
         price: 10,
-        images: [],
+        "images": [
+            "/assets/images/uploads/eva (3 of 25).jpg",
+            "/assets/images/uploads/eva (4 of 25).jpg"
+        ],
+
         inStock: true
     }, {
         sku: 2,
@@ -48,7 +52,10 @@ Product.find({}).remove(function() {
         description: 'An active wear shirt excellent for all physical activities.  Allows excellent movement and keeps you from getting all sweaty and stinky.',
         category: ['Clothing'],
         price: 25.00,
-        images: [],
+        "images": [
+            "/assets/images/uploads/eva (23 of 25).jpg",
+            "/assets/images/uploads/eva (25 of 25).jpg"
+        ],
         inStock: true
     }, {
         sku: 3,
@@ -56,7 +63,10 @@ Product.find({}).remove(function() {
         description: 'Super chic low carb outer wear.',
         category: ['Clothing'],
         price: 5.00,
-        images: [],
+        "images": [
+            "/assets/images/uploads/eva (5 of 25) - Copy.jpg",
+            "/assets/images/uploads/eva (6 of 25).jpg"
+        ],
         inStock: false
     });
     console.log('Seeding Products');

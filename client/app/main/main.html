@@ -1,25 +1,6 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
-<header class="hero-unit img-banner1" id="banner">
-  <div class="container">
-    <h1>'What up dawg?, 'Allo!</h1>
-    <p class="lead">Kick-start your next web app with Angular Fullstack</p>
-  </div>
-</header>
-
-<div class="container">
-  <div class="row text-center">
-    <div class="col-lg-12">
-      <h1 class="page-header">Features:</h1>
-      <div class="col-md-4 col-lg-4 col-sm-6" ng-repeat="product in products">
-        <a ui-sref="view-product({productId : product._id})"><h4>{{product.name}}</h4>
-          <img class="product-preview" ng-src="{{product.images[0]}}" alt="">
-        </a>
-      </div>
-      <div class="top-buffer-20"></div>
-    </div>
-  </div>
-</div>
+<div ui-view></div>
 
 <footer class="footer">
   <div class="container">
