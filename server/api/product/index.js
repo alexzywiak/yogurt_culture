@@ -9,6 +9,7 @@ var router = express.Router();
 
 router.get('/', controller.index);
 router.get('/all', controller.index);
+router.get('/limit/:limit', controller.limit);
 router.get('/:id', controller.show)
 router.get('/manage/:id', controller.show);
 router.post('/', controller.create);

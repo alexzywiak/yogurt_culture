@@ -1,19 +1,21 @@
 'use strict';
 
 angular.module('yogurtCultureApp')
-    .controller('ImageShowerCtrl', function($scope) {
-      $scope.setImage = function(image){
-        $scope.mainImage = image;
-      };
-    })
     .directive('imageShower', function() {
         return {
-            templateUrl: 'components/Directives/imageShower/imageShower.html',
             restrict: 'EA',
             scope: {
-                images: '=',
-                mainImage: '='
+                current: '@',
             },
-            controller: 'ImageShowerCtrl'
+            link:function($scope, $el, $attr){
+                $scope.images = [];
+                $attr.$observe('current', function(){
+                    if($attr.current.length > 0){
+                        $scope.images = $attr.current;
+                        console.log($scope.images);
+                    }
+                });
+            },  
+            templateUrl: 'components/Directives/imageShower/imageShower.html',
         };
     });

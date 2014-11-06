@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('yogurtCultureApp')
-    .controller('EditProductCtrl', function($scope, $http, $stateParams, ProductFactory, ImageFactory) {
+    .controller('EditProductCtrl', function($scope, $http, $stateParams, ProductFactory) {
 
         $scope.product = {};
-        $scope.productImages = {};
+        $scope.coverImage = '';
         $scope.updated = false;
         $scope.newCategory = '';
 
@@ -13,18 +13,16 @@ angular.module('yogurtCultureApp')
         ProductFactory.getProductById($stateParams.productId)
             .success(function(product) {
                 $scope.product = product;
-                if ($scope.product.images) {
-                    ImageFactory.getImagesFromIdArray($scope.product.images)
-                        .success(function(images) {
-                            $scope.productImages = images;
-                        });
-                }
+                $scope.coverImage = product.images[0];
             });
+            
+        $scope.setImage = function(newImg){
+            $scope.coverImage = newImg;
+        };
 
         $scope.updateProduct = function() {
             ProductFactory.updateProduct($scope.product)
                 .success(function(product) {
-                    console.log(product);
                     $scope.product = product;
                 });
         };

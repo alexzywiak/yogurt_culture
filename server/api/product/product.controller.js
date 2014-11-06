@@ -17,6 +17,18 @@ exports.index = function(req, res) {
     });
 };
 
+exports.limit = function(req, res) {
+    console.log('Limit This!');
+    Product.find()
+        .limit(req.params.limit)
+        .exec(function(err, products) {
+            if (err) {
+                return handleError(res, err);
+            }
+            return res.json(200, products);
+        });
+};
+
 // Get a single product
 exports.show = function(req, res) {
     Product.findById(req.params.id, function(err, product) {
@@ -50,14 +62,7 @@ exports.addImages = function(req, res) {
             return res.send(404);
         }
 
-        var imageArray = [];
-
-        for(var id in req.body){
-            if(req.body[id]){
-                imageArray.push(id);
-            }
-        }
-        product.images = imageArray;
+        product.images = req.body;
         product.save(function(err) {
             if (err) {
                 return handleError(res, err);
@@ -67,20 +72,20 @@ exports.addImages = function(req, res) {
     });
 };
 
-exports.addCategory = function(req, res){
+exports.addCategory = function(req, res) {
     console.log(req.body);
-    Product.findById(req.params.id, function(err, product){
-        if(err){
+    Product.findById(req.params.id, function(err, product) {
+        if (err) {
             return handleError(res, err);
         }
-        if(!product){
+        if (!product) {
             return res.send(404);
         }
 
         product.category = req.body;
 
-        product.save(function(err){
-            if(err){
+        product.save(function(err) {
+            if (err) {
                 return handleError(res, err);
             }
             return res.json(200, product);

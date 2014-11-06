@@ -9,7 +9,7 @@
   <div class="row top-buffer-10">
     <div class="col-sm-12">
       <ul class="list-inline">
-        <li class="col-sm-3" ng-repeat="image in images track by $index">
+        <li class="col-sm-3" ng-repeat="image in images">
           <a 
           href="#"
           ng-click="setImage(image)" >
@@ -23,7 +23,7 @@
   </div>
 </div>
 
-<div ng-show="images.length == 0">
+<div ng-show="images == 0">
   <div class="row">
     <div class="col-sm-12">
       <img src="/assets/images/siteImages/640x480.gif" alt="Add some pictures">

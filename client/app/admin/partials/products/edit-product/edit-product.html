@@ -8,7 +8,7 @@
 <p ng-show="updated">Updated! <a href="#"><span ng-click="updated = false">X</span></a></p>
 
 <form role="form" method="post">
-  
+
   <!-- Name/Price/Stock Inputs -->
   <div class="row">
     <div class="form-group col-sm-6">
@@ -74,8 +74,41 @@
   
   <!-- Image -->
   <div class="col-sm-6">
-    <image-shower images="productImages" main-image="productImages[0]"></image-shower>
+
+    <div ng-show="product.images.length > 0">
+      <div class="row">
+        <div class="col-sm-9">
+          <img
+          ng-src="{{coverImage}}">
+        </div>
+
+
+        <div class="col-sm-3">
+         <div 
+         class="row"
+         ng-repeat="image in product.images">
+           <div class="col-sm-12">
+             <a 
+             href="#"
+             ng-click="setImage(image)" >
+             <img 
+             ng-src="{{image}}"
+             alt="{{image}}">
+           </a>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+
+ <div ng-show="product.images.length == 0">
+  <div class="row">
+    <div class="col-sm-12">
+      <img src="/assets/images/siteImages/640x480.gif" alt="Add some pictures">
+    </div>
   </div>
+</div>
+</div>
 </div>
 
 <!-- Description Text Editor -->

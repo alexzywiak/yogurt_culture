@@ -1,6 +1,4 @@
 
-
-
 <div class="panel panel-default">
 
   <!-- Navigation Buttons in Panel Header -->
@@ -25,38 +23,40 @@
           <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
           <input class="form-control" type="search" ng-model="search" placeholder="Search Images">
         </div>
-        
+      </div>
+      <hr>
+      <div class="row media-library-bucket">
         <div 
         ng-repeat="image in images | filter:search"
-        ng-init="selectedImages[image._id] = current.images.indexOf(image._id) > -1"
-        ng-class="{'active' : selectedImages[image._id]}"
-        class="col-sm-2 media-image">
+        ng-init="selectedImages[image.serverPath] = current.images.indexOf(image.serverPath) > -1"
+        ng-class="{'active' : selectedImages[image.serverPath]}">
 
-        <div class="checkbox">
-          <label>
-            <input type="checkbox"
-            ng-model="selectedImages[image._id]"
-            ng-checked="selectedImages[image._id]">Add
-          </label>
-        </div>
-        <img src="{{image.serverPath}}" alt="{{image.originalFilename}}">
-        <h6>{{image.originalFilename | limitTo : 25}}</h6>
-        <a href="#" ng-click="removeImage(image._id)">Delete</a>
+          <div class="col-sm-2 col-sm-2-clip">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox"
+                ng-model="selectedImages[image.serverPath]"
+                ng-checked="selectedImages[image.serverPath]">Add
+              </label>
+            </div>
+            <img ng-src="{{image.serverPath}}" alt="{{image.originalFilename}}">
+            <h6>{{image.originalFilename | limitTo : 25}}</h6>
+            <a href="#" ng-click="removeImage(image._id)">Delete</a>
+          </div>
+
       </div>
-
     </div>
-
-    <div class="row">
-      <div class="form-group col-sm-4 col-sm-offset-8">
-       <button ng-click="saveImagesToProduct(current._id)" class="btn btn-success">Save Checked Images</button>
-     </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="form-group col-sm-4 col-sm-offset-8">
+     <button ng-click="saveImagesToProduct(current._id)" class="btn btn-success">Save Checked Images</button>
    </div>
  </div>
+</div>
 
- <!-- Shows the upload options -->
- <div ng-hide="showMediaLibrary">
-
-
+<!-- Shows the upload options -->
+<div ng-hide="showMediaLibrary">
 
   <div class="row">
 

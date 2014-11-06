@@ -9,6 +9,11 @@ angular.module('yogurtCultureApp')
           return $http.get('/api/products');
         };
 
+        exports.getSomeProducts = function(limit){
+          console.log('Come Get Some! ' + limit);
+          return $http.get('/api/products/limit/' + limit);
+        };
+
         exports.getProductById = function(productId){
           return $http.get('/api/products/' + productId);
         };

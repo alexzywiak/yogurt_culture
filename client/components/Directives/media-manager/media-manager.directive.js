@@ -25,7 +25,15 @@ angular.module('yogurtCultureApp')
         };
 
         $scope.saveImagesToProduct = function(productId) {
-            $http.put('/api/products/addImages/' + productId, $scope.selectedImages)
+            var imageArray = [];
+
+            for(var id in $scope.selectedImages){
+                if($scope.selectedImages[id]){
+                    imageArray.push(id);
+                }
+            }
+
+            $http.put('/api/products/addImages/' + productId, imageArray)
                 .success(function(product) {
                     $scope.product = product;
                 });
