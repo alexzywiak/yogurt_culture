@@ -1,0 +1,29 @@
+<div ng-controller="ImageViewerCtrl">
+  <div ng-show="imageArray.length > 0">
+    <div class="row">
+      <div class="col-sm-3">
+        <div
+          class="row"
+          ng-repeat="image in imageArray">
+          <div class="col-sm-12">
+            <a
+              href="#"
+              ng-click="setImage(image)" >
+              <img
+              ng-src="{{image}}"
+              alt="{{image}}">
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-9">
+        <img
+        ng-src="{{mainImageUrl}}">
+      </div>
+    </div>
+  </div>
+  <div ng-hide="mainImageUrl.length > 1" class="col-sm-9">
+    <h4>Add Images!</h4>
+    <img ng-src="/assets/images/siteImages/640x480.gif" alt="PlaceHolder">
+  </div>
+</div>

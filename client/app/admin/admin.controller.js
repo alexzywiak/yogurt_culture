@@ -8,11 +8,11 @@ angular.module('yogurtCultureApp')
             state: 'admin.blog',
             submenu: [{
                 title: 'Manage Posts',
-                state: 'admin.blog.manage-posts',
+                state: 'admin.manage-posts',
             },
             {
                 title: 'Add New Post',
-                state: 'admin.blog.new-post',
+                state: 'admin.new-post',
             }]
         }, {
             title: 'Products',

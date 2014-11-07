@@ -1,0 +1,22 @@
+<div class="container">    
+
+  <div class="row">
+
+
+    <!-- Display Images -->
+    <div class="col-sm-6">
+      <div ng-include="'components/partials/imageViewer/imageViewer.html'"></div>
+    </div>
+
+    <!-- Display Product Info -->
+    <div class="col-sm-6">
+      <div class="row">
+        <div class="col-sm-12">
+          <h1>{{product.name}}</h1>
+          <p>{{product.description}}</p>
+          <h4 class="text-right">${{product.price}}</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
