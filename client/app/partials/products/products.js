@@ -27,12 +27,12 @@ angular.module('yogurtCultureApp')
             })
 
             // Main Views
-            .state('main.products', {
+            .state('products', {
                 url: '/products',
                 templateUrl: 'app/partials/products/products.html',
                 controller: 'ProductCtrl'
             })
-            .state('main.view-product', {
+            .state('products.view-product', {
                 url: '/view-products/:productId',
                 templateUrl: 'app/partials/products/view-product/view-product.html',
                 controller: 'ViewProductCtrl'

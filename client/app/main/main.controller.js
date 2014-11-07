@@ -1,6 +1,9 @@
 'use strict';
 
 angular.module('yogurtCultureApp')
-  .controller('MainCtrl', function ($state) {
-    $state.go('main.home');
+.controller('MainCtrl', function ($scope, ProductFactory) {
+  ProductFactory.getSomeProducts(3)
+  .success(function(products){
+    $scope.products = products;
   });
+});
