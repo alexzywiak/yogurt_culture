@@ -25,7 +25,7 @@
 //                 });
 //         };
 
-//         $scope.saveImagesToProduct = function(productId) {
+//         $scope.saveImagesToCurrent = function(productId) {
 //             $http.put('/api/products/addImages/' + productId, $scope.selectedImages)
 //                 .success(function(product) {
 //                     $scope.product = product;

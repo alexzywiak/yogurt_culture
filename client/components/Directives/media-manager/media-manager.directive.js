@@ -24,19 +24,16 @@ angular.module('yogurtCultureApp')
                 });
         };
 
-        $scope.saveImagesToProduct = function(productId) {
+        $scope.saveImagesToCurrent = function(productId, type) {
             var imageArray = [];
 
-            for(var id in $scope.selectedImages){
-                if($scope.selectedImages[id]){
+            for (var id in $scope.selectedImages) {
+                if ($scope.selectedImages[id]) {
                     imageArray.push(id);
                 }
             }
 
-            $http.put('/api/products/addImages/' + productId, imageArray)
-                .success(function(product) {
-                    $scope.product = product;
-                });
+            ImageFactory.saveImagesToDb(type, productId, imageArray);
         };
 
         $scope.removeImage = function(imageId) {

@@ -4,6 +4,7 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var ProductSchema = new Schema({
+  type        : {type : String, default : 'products'},
   name        : String,
   description : String,
   category    : Array,

@@ -58,6 +58,26 @@ exports.update = function(req, res) {
     });
 };
 
+exports.addImages = function(req, res) {
+
+    Post.findById(req.params.id, function(err, post) {
+        if (err) {
+            return handleError(res, err);
+        }
+        if (!post) {
+            return res.send(404);
+        }
+
+        post.images = req.body;
+        post.save(function(err) {
+            if (err) {
+                return handleError(res, err);
+            }
+            return res.json(200, post);
+        });
+    });
+};
+
 // Deletes a post from the DB.
 exports.destroy = function(req, res) {
     Post.findById(req.params.id, function(err, post) {

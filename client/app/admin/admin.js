@@ -12,13 +12,13 @@ angular.module('yogurtCultureApp')
             // Product Templates
             .state('admin.products', {
                 url: '/admin/products',
-                templateUrl: 'app/partials/products/products.html',
+                templateUrl: 'app/products/products.html',
                 controller: 'ProductCtrl'
             })
             // Blog Templates
             .state('admin.blog', {
                 url: '/admin/blog',
-                templateUrl: 'app/partials/blog/blog.html',
+                templateUrl: 'app/blog/blog.html',
                 controller: 'BlogCtrl'
             });
             
