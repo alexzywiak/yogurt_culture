@@ -12,9 +12,7 @@
               <div
               ng-show="post.images.length > 0" 
               class="col-sm-3">
-                  <img 
-                  class="block-image"
-                  ng-src="{{post.images[0]}}" alt="{{post.images[0]}}">
+                  <div class="block-image" style="background:url('{{post.images[0]}}') no-repeat center center"></div>
               </div>
               <div class="col-sm-9">
                 <h3>{{post.title}}</h3>
